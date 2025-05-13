@@ -1,0 +1,21 @@
+name: Run JS on Issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  run-js:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Run JavaScript
+      run: node index.js
